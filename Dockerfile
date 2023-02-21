@@ -38,6 +38,6 @@ USER jenkins
 # that is already set up by the base jenkins image
 COPY plugins.txt ${REF}/init.groovy.d/plugins.txt
 # install all plugins listed up there
-RUN install-plugins.sh < ${REF}/init.groovy.d/plugins.txt
+RUN jenkins-plugin-cli -f ${REF}/init.groovy.d/plugins.txt
 
 WORKDIR $JENKINS_HOME
