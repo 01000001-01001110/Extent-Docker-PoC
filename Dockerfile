@@ -5,10 +5,16 @@ USER root
 ARG USER_GID
 ARG USER_ID
 
-# RUN groupmod -g ${USER_GROUP_ID} jenkins
-RUN usermod -u ${USER_ID} -g ${USER_GID} jenkins \
-    # chown ${REF} since we changed the UID
-    && chown -R jenkins ${REF}
+# Check that the USER_GID argument is set
+RUN if [ -z "$USER_GID" ]; then echo "USER_GID argument is not set"; exit 1; fi
+
+# Check that the USER_ID argument is set
+RUN if [ -z "$USER_ID" ]; then echo "USER_ID argument is not set"; exit 1; fi
+
+# Update the jenkins user ID and group ID
+RUN usermod -u ${USER_ID} jenkins \
+    && groupmod -g ${USER_GID} jenkins \
+    && chown -R jenkins:jenkins ${JENKINS_HOME}
 
 # install docker commandline interface and its dependencies
 RUN apt update && apt install -y lsb-release \
