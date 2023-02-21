@@ -12,9 +12,8 @@ RUN usermod -u ${USER_ID} -g ${USER_GID} jenkins \
 
 # install docker commandline interface and its dependencies
 RUN apt update && apt install -y lsb-release \
-    jq \
-    
     software-properties-common \
+    jq \
     apt-transport-https \
     && rm -rf /var/lib/apt/lists/*
 
