@@ -19,4 +19,4 @@ git clone https://github.com/01000001-01001110/Extent-Docker-PoC.git
 cd Extent-Docker-PoC
 
 <h2>Docker Build Command:</h2>
-docker build -t jenkins:jcasc --build-arg USER_GID=<###> --build-arg USER_ID=<###> -t extent-jenkins .
+docker build --build-arg USER_GID=<###> --build-arg USER_ID=<###> -t extent-jenkins .
