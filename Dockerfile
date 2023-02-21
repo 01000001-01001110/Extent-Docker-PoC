@@ -13,9 +13,6 @@ RUN if [ -z "$USER_GID" ]; then echo "USER_GID argument is not set"; exit 1; fi
 # Check that the USER_ID argument is set
 RUN if [ -z "$USER_ID" ]; then echo "USER_ID argument is not set"; exit 1; fi
 
-# Install the Jenkins CLI Plugin
-RUN java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin plugin-name
-
 # Update the jenkins user ID and group ID
 RUN usermod -u ${USER_ID} jenkins \
     && groupmod -g ${USER_GID} jenkins \
