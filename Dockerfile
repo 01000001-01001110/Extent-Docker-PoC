@@ -39,7 +39,7 @@ USER jenkins
 COPY plugins.txt ${REF}/init.groovy.d/plugins.txt
 
 USER root
-RUN touch /var/jenkins_home/copy_reference_file.log
+RUN sh -c 'touch /var/jenkins_home/copy_reference_file.log'
 RUN chmod 777 /var/jenkins_home/copy_reference_file.log
 
 # install all plugins listed up there
