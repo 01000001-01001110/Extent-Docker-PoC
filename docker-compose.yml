@@ -7,7 +7,7 @@ services:
       args:
         USER_GID: $USER_GID
         USER_ID: $USER_ID
-    image: apoehlmann/jenkins
+    image: extenthosting/jenkins
     environment:
       CASC_JENKINS_CONFIG: $CASC_JENKINS_CONFIG
       JAVA_OPTS: -Djenkins.install.runSetupWizard=false
