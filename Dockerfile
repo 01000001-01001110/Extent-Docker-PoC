@@ -22,6 +22,7 @@ RUN usermod -u ${USER_ID} jenkins \
 RUN apt update && apt install -y lsb-release \
     software-properties-common \
     jq \
+    apt-utils \
     apt-transport-https \
     && rm -rf /var/lib/apt/lists/*
 
