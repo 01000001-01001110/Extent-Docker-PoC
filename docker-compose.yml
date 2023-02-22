@@ -15,7 +15,7 @@ services:
     ports:
       - 9080:8080
     volumes:
-      - /home/jenkins/data/jenkins:$JENKINS_HOME
+      - /home/anadmin/data/jenkins:/var/jenkins_home
       - ./bashrc:$JENKINS_HOME/.bashrc
       - ./jenkins.yml:$CASC_JENKINS_CONFIG
       - /var/run/docker.sock:/var/run/docker.sock
